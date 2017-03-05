@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DataWiz</title><!-- Special version of Bootstrap that only affects content wrapped in .bootstrap-iso -->
+    <link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css"/>
+
+    <!--Font Awesome (added because you use icons in your prepend/append)-->
+    <link rel="stylesheet" href="https://formden.com/static/cdn/font-awesome/4.4.0/css/font-awesome.min.css"/>
+
+    <!-- Inline CSS based on choices in "Settings" tab -->
+    <style>.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form {
+        font-family: "Courier New", Courier, monospace;
+        color: #ffffff
+    }
+
+    .bootstrap-iso form button, .bootstrap-iso form button:hover {
+        color: #ffffff !important;
+    }
+
+    .bootstrap-iso .form-control:focus {
+        border-color: #5fc678;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(95, 198, 120, 0.6);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(95, 198, 120, 0.6);
+    }
+
+    .asteriskField {
+        color: red;
+    }
+
+    .bootstrap-iso form .input-group-addon {
+        color: #575757;
+        background-color: #cdffcb;
+        border-radius: 4px;
+        padding-left: 12px
+    }</style>
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <hr>
+            <h2 class="intro-text text-center">
+                <strong>DataWiz</strong>
+            </h2>
+            <hr>
+        </div>
+        <!-- HTML Form (wrapped in a .bootstrap-iso div) -->
+        <div class="bootstrap-iso">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <form method="post">
+                            <div class="form-group ">
+                                <label class="control-label ">Shops</label>
+                                <div class=" ">
+                                    <div class="checkbox">
+                                        <label class="checkbox">
+                                            <input name="checkbox" type="checkbox" value="Shop №1"/>Shop №1</label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label class="checkbox">
+                                            <input name="checkbox" type="checkbox" value="Shop №2"/>Shop №2</label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label class="checkbox">
+                                            <input name="checkbox" type="checkbox" value="Shop №3"/>Shop №3</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <label class="control-label " for="date_from">Date From</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <input class="form-control" id="date_from" name="date_from" placeholder="MM/DD/YYYY"
+                                           type="text"/>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <label class="control-label " for="date_to">Date To</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <input class="form-control" id="date_to" name="date_to" placeholder="MM/DD/YYYY"
+                                           type="text"/>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <label class="control-label " for="select">Select</label>
+                                <select class="select form-control" id="select" name="select">
+                                    <option value="Total Price">Total Price</option>
+                                    <option value="Qty">Qty</option>
+                                    <option value="Items Qty">Items Qty</option>
+                                </select>
+                            </div>
+                            <div class="form-group ">
+                                <label class="control-label " for="select_time">Time</label>
+                                <select class="select form-control" id="select_time" name="select_time">
+                                    <option value="10 Min">10 Min</option>
+                                    <option value="30 Min">30 Min</option>
+                                    <option value="1 Hours">1 Hours</option>
+                                    <option value="2 Hours">2 Hours</option>
+                                    <option value="4 Hours">4 Hours</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <div>
+                                    <button class="btn btn-success " name="submit" type="submit">
+                                        Submit
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Extra JavaScript/CSS added manually in "Settings" tab -->
+<!-- Include jQuery -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<!-- Include Date Range Picker -->
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
+<script>
+    $(document).ready(function () {
+        var date_input = $('input[name="date"]'); //our date input has the name "date"
+        var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
+        date_input.datepicker({
+            format: 'mm/dd/yyyy',
+            container: container,
+            todayHighlight: true,
+            autoclose: true,
+        })
+    })
+</script>
+</body>
+</html>
